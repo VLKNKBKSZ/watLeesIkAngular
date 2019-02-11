@@ -12,6 +12,9 @@ import { BookDeleteComponent } from './component/book/book-delete/book-delete.co
 import { BookCreateComponent } from './component/book/book-create/book-create.component';
 import { BookUpdateComponent } from './component/book/book-update/book-update.component';
 import {BookComponent} from './component/book/book.component';
+import { BookDetailsComponent } from './component/book/book-details/book-details.component';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {HttpClient, HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -24,13 +27,17 @@ import {BookComponent} from './component/book/book.component';
     BookComponent,
     BookDeleteComponent,
     BookCreateComponent,
-    BookUpdateComponent
+    BookUpdateComponent,
+    BookDetailsComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
   ],
-  providers: [],
+  providers: [HttpClient],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
