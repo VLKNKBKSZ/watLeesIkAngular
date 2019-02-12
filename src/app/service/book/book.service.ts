@@ -1,21 +1,34 @@
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { FormGroup } from '@angular/forms';
+import {Injectable} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
+import {Observable} from 'rxjs';
+import {FormGroup} from '@angular/forms';
+import {environment} from '../../../environments/environment.prod';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class BookService {
 
-  constructor(private http: HttpClient) { }
-  baseUrl: string = 'http://localhost:8080/';
+  baseUrl: string = environment.restApiUrl;
 
-  createBook(bookForm: FormGroup): Observable<any> {
-    return this.http.get<any>(this.baseUrl)
+  constructor(private http: HttpClient) {
+  }
+
+
+  public createBook(bookForm: FormGroup): Observable<any> {
+    return this.http.get<any>(this.baseUrl);
+  }
+
+  public deleteBook () {
+
+  }
+
+  public updateBook () {
+
   }
 
   getBookTypesArray(): Observable<any> {
-    return this.http.get<any>(this.baseUrl)
+    return this.http.get<any>(this.baseUrl);
   }
 }

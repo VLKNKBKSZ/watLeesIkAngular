@@ -1,0 +1,25 @@
+<form [formGroup]="authorForm" (ngSubmit)="onSubmit()">
+  <h3>Auteurgegevens</h3>
+  <div class="form-group row">
+    <label class="col-sm-2 col-form-label">Naam:</label>
+    <input type="text" formControlName="name" class="form-control col-lg-3" [ngClass]="{ 'is-invalid':formControls.name.errors}" >
+    <div *ngIf="formControls.name.errors" class="invalid-feedback">
+      <div *ngIf="formControls.name.errors.required"> Naam is vereist...</div>
+      <div *ngIf="formControls.name.errors.pattern"> Vul alleen letters in...</div>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label class="col-sm-2 col-form-label">Tussenvoegsel:</label>
+    <input type="text" formControlName="middleName" class="form-control col-lg-3">
+  </div>
+  <div class="form-group row">
+    <label class="col-sm-2 col-form-label">Achternaam:</label>
+    <input type="text" formControlName="lastName" class="form-control col-lg-3" [ngClass]="{ 'is-invalid':formControls.lastName.errors}">
+    <div *ngIf="formControls.lastName.errors" class="invalid-feedback">
+      <div *ngIf="formControls.lastName.errors.required"> Naam is vereist...</div>
+      <div *ngIf="formControls.lastName.errors.pattern"> Vul alleen letters in...</div>
+    </div>
+  </div>
+  <button type="submit" class="btn btn-primary"><!--[disabled]="!profileForm.valid"-->Submit</button>
+</form>
+

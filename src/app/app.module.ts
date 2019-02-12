@@ -14,6 +14,9 @@ import { BookUpdateComponent } from './component/book/book-update/book-update.co
 import {BookComponent} from './component/book/book.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
+import { AuthorComponent } from './component/author/author.component';
+import { AuthorCreateComponent } from './component/author/author-create/author-create.component';
+import { AuthorDetailsComponent } from './component/author/author-details/author-details.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +29,10 @@ import {HttpClient, HttpClientModule} from '@angular/common/http';
     BookComponent,
     BookDeleteComponent,
     BookCreateComponent,
-    BookUpdateComponent
+    BookUpdateComponent,
+    AuthorComponent,
+    AuthorCreateComponent,
+    AuthorDetailsComponent
   ],
   imports: [
     BrowserModule,
