@@ -1,3 +1,22 @@
-<p>
-  login works!
-</p>
+<div class="col-md-6 container mt-3">
+  <h2>Inloggen</h2>
+  <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+    <div class="form-group">
+      <label for="email">Emailadres:</label>
+      <input type="text" class="form-control" formControlName="email" id="email" autocomplete="off">
+      <div class="error" *ngIf="loginForm.controls['email'].hasError('required') && loginForm.controls['email'].touched">
+        Emailadres is vereist</div>
+    </div>
+    <div class="form-group">
+      <label for="password">Wachtwoord:</label>
+      <input type="password" class="form-control" formControlName="password" id="password" autocomplete="off">
+      <div class="error" *ngIf="loginForm.controls['password'].hasError('required') && loginForm.controls['password'].touched">
+        Wachtwoord is vereist</div>
+    </div>
+    <button class="btn btn-success" [disabled]="loginForm.invalid">Inloggen</button>
+    <a class="btn btn-success float-right" routerLink="/register">Nieuwe gebruiker</a>
+    <div *ngIf="invalidLogin" class="error">
+      <div>Onjuiste inlog gegevens</div>
+    </div>    
+  </form>
+</div>

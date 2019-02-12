@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {BookServiceService} from '../../../service/book-service/book-service.service';
+import {BookService} from '../../../service/book/book.service';
 import {Router} from '@angular/router';
 import {Form, FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {first} from 'rxjs/operators';
@@ -18,7 +18,7 @@ export class BookCreateComponent implements OnInit {
   bookTypeArray: string;
   submitted = false;
 
-  constructor(private bookService: BookServiceService, private router: Router, private formBuilder: FormBuilder) {
+  constructor(private bookService: BookService, private router: Router, private formBuilder: FormBuilder) {
   }
 
   // convenience getter for easy access to form fields

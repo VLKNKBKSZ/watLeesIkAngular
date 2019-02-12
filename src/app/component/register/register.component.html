@@ -1,3 +1,21 @@
-<p>
-  register works!
-</p>
+<div class="col-md-6 container mt-3">
+  <h2>Registreren</h2>
+  <form [formGroup]="registrationForm" (ngSubmit)="onRegister()">
+    <div class="form-group">
+      <label for="email">Emailadres:</label>
+      <input type="text" class="form-control" formControlName="email" id="email" autocomplete="off">
+      <div class="error" *ngIf="registrationForm.controls['email'].hasError('required') && registrationForm.controls['email'].touched">
+        Gebruikersnaam is vereist</div>
+    </div>
+    <div class="form-group">
+      <label for="password">Wachtwoord:</label>
+      <input type="password" class="form-control" formControlName="password" id="password" autocomplete="off">
+      <div class="error" *ngIf="registrationForm.controls['password'].hasError('required') && registrationForm.controls['password'].touched">
+        Wachtwoord is vereist</div>
+    </div>
+    <button class="btn btn-success" [disabled]="registrationForm.invalid">Registreer</button>
+    <div *ngIf="invalidRegistration" class="error">
+      <div>Registratie mislukt</div>
+    </div>
+  </form>
+</div>

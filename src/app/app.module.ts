@@ -12,7 +12,6 @@ import { BookDeleteComponent } from './component/book/book-delete/book-delete.co
 import { BookCreateComponent } from './component/book/book-create/book-create.component';
 import { BookUpdateComponent } from './component/book/book-update/book-update.component';
 import {BookComponent} from './component/book/book.component';
-import { BookDetailsComponent } from './component/book/book-details/book-details.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
 
@@ -27,8 +26,7 @@ import {HttpClient, HttpClientModule} from '@angular/common/http';
     BookComponent,
     BookDeleteComponent,
     BookCreateComponent,
-    BookUpdateComponent,
-    BookDetailsComponent
+    BookUpdateComponent
   ],
   imports: [
     BrowserModule,
