@@ -13,7 +13,7 @@ import {BookType} from '../../../model/BookType';
 export class BookCreateComponent implements OnInit {
 
 
-  bookTypes: any;
+  bookCategories: any;
   bookForm: FormGroup;
   bookTypeArray: string;
   submitted = false;
@@ -26,8 +26,8 @@ export class BookCreateComponent implements OnInit {
     return this.bookForm.controls;
   }
   ngOnInit() {
-    this.bookService.getBookTypesArray().subscribe(data => {
-      this.bookTypes = data;
+    this.bookService.getBookCategories().subscribe(data => {
+      this.bookCategories = data;
     });
     this.bookForm = this.formBuilder.group({
       title: ['De Ontdekking van de hemel', Validators.required],

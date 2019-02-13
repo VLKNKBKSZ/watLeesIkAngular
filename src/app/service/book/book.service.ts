@@ -28,7 +28,7 @@ export class BookService {
 
   }
 
-  getBookTypesArray(): Observable<any> {
-    return this.http.get<any>(this.baseUrl);
+  public getBookCategories(): Observable<any> {
+    return this.http.get<any>(this.baseUrl + 'book/categories');
   }
 }

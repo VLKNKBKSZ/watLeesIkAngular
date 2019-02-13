@@ -32,7 +32,7 @@
   <div class="dropdown" formGroupName="bookType">
     <div class="form-group row"><label class="col-sm-2 col-form-label" >Genre:</label>
       <select formControlName="name">
-        <option *ngFor="let bookTypeArray of bookTypes" value="{{bookTypeArray.name}}">{{bookTypeArray.name}}</option>
+        <option *ngFor="let bookCategory of bookCategories" value="{{bookCategory.name}}">{{bookCategory.name}}</option>
       </select></div>
   </div>
   <!-- <div formGroupName="bookType" class="form-group row">
