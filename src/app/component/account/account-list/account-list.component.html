@@ -1,0 +1,26 @@
+<div class="col-md-12 container">
+  <h2>Account Overzicht</h2>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th class="hidden">ID</th>
+        <th>Email adres</th>
+        <th>Rol</th>
+        <th>Aangemaakt op</th>
+        <th>Laatst gewijzigd</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let account of accounts">
+        <td class="hidden">{{account.id}}</td>
+        <td>{{account.email}}</td>
+        <td>{{account.authorities}}</td>
+        <td>{{account.createdAt}}</td>
+        <td>{{account.updatedAt}}</td>
+        <td><button class="btn btn-success m-1" (click)="deleteAccount(account)">Verwijderen</button>
+          <button class="btn btn-success m-1" (click)="editAccount(account)">Wijzigen</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
