@@ -15,8 +15,8 @@
         <td class="hidden">{{account.id}}</td>
         <td>{{account.email}}</td>
         <td>{{account.role}}</td>
-        <td>{{account.createdAt}}</td>
-        <td>{{account.updatedAt}}</td>
+        <td>{{account.createdOn | date :'dd-MM-yyyy HH:mm'}}</td>
+        <td>{{account.updatedOn | date :'dd-MM-yyyy HH:mm'}}</td>
         <td><button class="btn btn-success m-1" (click)="deleteAccount(account)">Verwijderen</button>
           <button class="btn btn-success m-1" (click)="editAccount(account)">Wijzigen</button>
         </td>
