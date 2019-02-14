@@ -30,7 +30,12 @@ export class LoginComponent implements OnInit {
       data => {
         if (data !== null && data.tokenType === 'Bearer') {
           window.localStorage.setItem('token', data.accessToken);
-          this.router.navigate(['home']);
+          if (window.localStorage.getItem("firstLogin") === 'true') {
+            window.localStorage.removeItem("firstLogin");
+            this.router.navigate(['profile/profile-update']);
+          } else {
+            this.router.navigate(['home']);
+          }
         } else {
           this.invalidLogin = true;
         }

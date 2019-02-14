@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { RegisterService } from '../../service/register/register.service';
 import { Router } from '@angular/router';
+import { LoginService } from 'src/app/service/login/login.service';
 
 @Component({
   selector: 'app-register',
@@ -15,7 +16,8 @@ export class RegisterComponent implements OnInit {
   constructor(
     private registerService: RegisterService,
     private router: Router,
-    private formBuilder: FormBuilder ) { }
+    private formBuilder: FormBuilder,
+    private loginService: LoginService ) { }
 
   onRegister() {
     if (this.registrationForm.invalid) {
@@ -27,8 +29,10 @@ export class RegisterComponent implements OnInit {
     }
     this.registerService.register(registrationPayload).subscribe(data => {
       if (data !== null) {
+        window.localStorage.removeItem("updateProfileId");
+        window.localStorage.setItem("updateProfileId", data.result.id)
+        window.localStorage.setItem("firstLogin", 'true');
         this.router.navigate(['login']);
-        // Laat success message ergens zien
       }
     })
   }

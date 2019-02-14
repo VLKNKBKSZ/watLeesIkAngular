@@ -1,0 +1,33 @@
+<div class="col-md-6 container">
+  <h2 class="text-center">Update Profiel</h2>
+  <form [formGroup]="updateForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <input type="text" formControlName="id" placeholder="id" name="id" class="form-control" id="id">
+    </div>
+    <div class="form-group">
+      <label for="name">Naam:</label>
+      <input type="text" formControlName="name" placeholder="naam" name="name" class="form-control" id="name">
+    </div>
+    <div class="form-group">
+      <label for="middleName">Tussenvoegsel:</label>
+      <input type="text" formControlName="middleName" placeholder="tussenvoegsel" name="middleName" class="form-control" id="middleName">
+    </div>
+    <div class="form-group">
+      <label for="lastName">Achternaam:</label>
+      <input type="text" formControlName="lastName" placeholder="achternaam" name="lastName" class="form-control" id="lastName">
+    </div>
+    <div class="form-group">
+      <label for="dayOfBirth">Geboortedatum:</label>
+      <input type="text" formControlName="dayOfBirth" placeholder="geboortedatum" name="dayOfBirth" class="form-control" id="dayOfBirth">
+    </div>
+    <div class="form-group">
+      <label for="bookList">Gelezen boeken:</label>
+      <input type="text" formControlName="bookList" placeholder="boekenlijst" name="bookList" class="form-control" id="bookList">
+    </div>
+    <div class="form-group">
+      <label for="updateOn">Naam:</label>
+      <input type="text" formControlName="updateOn" placeholder="laatst gewijzigd op" name="updateOn" class="form-control" id="updateOn" readonly=true>
+    </div>
+    <button class="btn btn-success">Wijzigingen opslaan</button>
+  </form>
+</div>

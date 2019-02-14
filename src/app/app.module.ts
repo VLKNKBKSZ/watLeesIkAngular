@@ -19,6 +19,7 @@ import { AuthorCreateComponent } from './component/author/author-create/author-c
 import { AuthorDetailsComponent } from './component/author/author-details/author-details.component';
 import { AccountListComponent } from './component/account/account-list/account-list.component';
 import { TokenInterceptor } from './service/interceptor/token.interceptor';
+import { ProfileUpdateComponent } from './component/profile/profile-update/profile-update.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { TokenInterceptor } from './service/interceptor/token.interceptor';
     AuthorComponent,
     AuthorCreateComponent,
     AuthorDetailsComponent,
-    AccountListComponent
+    AccountListComponent,
+    ProfileUpdateComponent
   ],
   imports: [
     BrowserModule,

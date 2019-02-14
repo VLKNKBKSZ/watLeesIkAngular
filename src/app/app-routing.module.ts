@@ -7,6 +7,7 @@ import {BookComponent} from './component/book/book.component';
 import {RegisterComponent} from './component/register/register.component';
 import {AuthorComponent} from './component/author/author.component';
 import { AccountListComponent } from './component/account/account-list/account-list.component';
+import { ProfileUpdateComponent } from './component/profile/profile-update/profile-update.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
@@ -16,6 +17,7 @@ const routes: Routes = [
   {path: 'book', component: BookComponent},
   {path: 'author', component: AuthorComponent},
   {path: 'account/account-list', component: AccountListComponent},
+  {path: 'profile/profile-update', component: ProfileUpdateComponent},
   {path: '**', component: NotFoundComponent},
 ];
 
