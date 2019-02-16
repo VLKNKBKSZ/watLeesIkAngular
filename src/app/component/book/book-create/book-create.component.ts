@@ -1,9 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {BookService} from '../../../service/book/book.service';
 import {Router} from '@angular/router';
-import {Form, FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {first} from 'rxjs/operators';
-import {BookType} from '../../../model/BookType';
 
 @Component({
   selector: 'app-book-create',
@@ -34,8 +33,8 @@ export class BookCreateComponent implements OnInit {
       isbn: ['9789023466154', Validators.required],
       pages: ['936', Validators.required],
       publicationYear: ['1992', Validators.required],
-      bookType: this.formBuilder.group({
-        name: ['Fantasie', Validators.required]
+      bookCategory: this.formBuilder.group({
+        name: ['Fantasie', Validators.required],
       }),
       author: this.formBuilder.group({
         name: ['Harry', Validators.required],

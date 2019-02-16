@@ -17,7 +17,7 @@ export class BookService {
 
 
   public createBook(bookForm: FormGroup): Observable<any> {
-    return this.http.get<any>(this.baseUrl);
+    return this.http.post<any>(this.baseUrl + 'book', bookForm);
   }
 
   public deleteBook () {

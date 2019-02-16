@@ -29,7 +29,7 @@
       <div *ngIf="f.publicationYear.errors.required"> Vul a.u.b een jaartal in...</div>
     </div>
   </div>
-  <div class="dropdown" formGroupName="bookType">
+  <div class="dropdown" formGroupName="bookCategory">
     <div class="form-group row"><label class="col-sm-2 col-form-label" >Genre:</label>
       <select formControlName="name">
         <option *ngFor="let bookCategory of bookCategories" value="{{bookCategory.name}}">{{bookCategory.name}}</option>
