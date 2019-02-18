@@ -8,6 +8,7 @@ import {RegisterComponent} from './component/register/register.component';
 import {AuthorComponent} from './component/author/author.component';
 import { AccountListComponent } from './component/account/account-list/account-list.component';
 import { ProfileUpdateComponent } from './component/profile/profile-update/profile-update.component';
+import {BookDetailsComponent} from './component/book/book-details/book-details.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
@@ -15,6 +16,7 @@ const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
   {path: 'book', component: BookComponent},
+  { path: 'book/:isbn', component: BookDetailsComponent },
   {path: 'author', component: AuthorComponent},
   {path: 'account/account-list', component: AccountListComponent},
   {path: 'profile/profile-update', component: ProfileUpdateComponent},

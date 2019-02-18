@@ -14,8 +14,6 @@ export class BookCreateComponent implements OnInit {
 
   bookCategories: any;
   bookForm: FormGroup;
-  bookTypeArray: string;
-  submitted = false;
 
   constructor(private bookService: BookService, private router: Router, private formBuilder: FormBuilder) {
   }
@@ -45,7 +43,6 @@ export class BookCreateComponent implements OnInit {
   }
 
   onSubmit() {
-    this.submitted = true;
     if (this.bookForm.invalid) {
       return;
     }

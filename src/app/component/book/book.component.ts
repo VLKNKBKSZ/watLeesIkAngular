@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {BookService} from '../../service/book/book.service';
+import {Router} from '@angular/router';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-book',
@@ -7,9 +10,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BookComponent implements OnInit {
 
-  constructor() { }
+  books;
 
-  ngOnInit() {
+  constructor(private bookService: BookService, private router: Router, private formBuilder: FormBuilder) {
   }
 
+  OnSearch(s) {
+    this.bookService.searchParam(s)
+      .subscribe((data: any) => {
+        this.books = data.items;
+      });
+  }
+
+  ngOnInit(): void {
+  }
 }

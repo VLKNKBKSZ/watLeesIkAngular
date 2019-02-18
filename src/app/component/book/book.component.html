@@ -1,1 +1,13 @@
-<app-book-create></app-book-create>
+<div class="col-md-6 container mt-3">
+  <input type="search" placeholder="Zoeken..." #search id="search" />
+  <button (click)="OnSearch(search.value)" class="btn-primary badge-primary">Zoeken...</button>
+
+</div>
+<div *ngIf="books" id="f">
+  <div class="row">
+    <div  class="col-xs-4 offset-1" *ngFor="let book of books" [routerLink]="['/book', book.volumeInfo.industryIdentifiers[0].identifier]">
+      {{book.volumeInfo.title}}
+      <p *ngIf="book.volumeInfo.imageLinks"><img src={{book.volumeInfo.imageLinks.smallThumbnail}} /></p>
+    </div>
+  </div>
+</div>
