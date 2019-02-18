@@ -33,8 +33,8 @@ export class ProfileUpdateComponent implements OnInit {
       middleName: ['', Validators.required],
       lastName: ['', Validators.required],
       updatedOn: ['', Validators.required],
-      account: ['']
-      // bookList: ['', Validators.required]
+      addressList: ['', Validators.required],
+      bookList: ['', Validators.required]
     });
     this.profileService.getProfileById(+profileId)
       .subscribe(data => {
@@ -45,7 +45,6 @@ export class ProfileUpdateComponent implements OnInit {
   onSubmit() {
     this.profileService.updateProfile(this.updateForm.value)
       .subscribe( data => {
-        alert(data)
       })
   }
 
