@@ -10,8 +10,11 @@
       <a class="nav-item nav-link" routerLink="account/account-list">Accounts</a>
       <a class="nav-item nav-link disabled">disabled</a>
     </div>
-    <div class="navbar-nav">      
+    <div class="navbar-nav" *ngIf="!currentAccount">      
         <a class="nav-item nav-link" routerLink="login">login</a>      
     </div>
+    <div class="navbar-nav" *ngIf="currentAccount">      
+      <a class="nav-item nav-link" routerLink="login">{{currentAccount.email}}</a>      
+  </div>
   </div>
 </nav>

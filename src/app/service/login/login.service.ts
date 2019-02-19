@@ -1,17 +1,31 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, BehaviorSubject } from 'rxjs';
 import { environment } from 'src/environments/environment.prod';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LoginService {
+  private currentAccountSubject: BehaviorSubject<Account>;
+  public currentAccount: Observable<Account>;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) { 
+    this.currentAccountSubject = new BehaviorSubject<Account>(JSON.parse(window.localStorage.getItem('currentAccount')));
+    this.currentAccount = this.currentAccountSubject.asObservable();
+  }
+
   baseUrl: string = environment.restApiUrl;
 
   login(loginPayload): Observable<any> {
-    return this.http.post<any>(this.baseUrl + 'login', loginPayload);
+    return this.http.post<any>(this.baseUrl + 'login', loginPayload)
+      .pipe(map(data => {
+        if (data && data.tokenType === 'Bearer') {
+          window.localStorage.setItem('currentAccount', JSON.stringify(data));
+          this.currentAccountSubject.next(data);
+        }
+        return data;
+      }))
   }
 }

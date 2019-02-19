@@ -29,8 +29,6 @@ export class RegisterComponent implements OnInit {
     }
     this.registerService.register(registrationPayload).subscribe(data => {
       if (data !== null) {
-        window.localStorage.removeItem("updateProfileId");
-        window.localStorage.setItem("updateProfileId", data.result.id)
         window.localStorage.setItem("firstLogin", 'true');
         this.router.navigate(['login']);
       }

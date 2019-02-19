@@ -17,7 +17,7 @@ export class AccountListComponent implements OnInit {
     private accountService: AccountService) { }
 
   ngOnInit() {
-    if (!window.localStorage.getItem('token')) {
+    if (!window.localStorage.getItem('currentAccount')) {
       this.router.navigate(['login']);
       return;
     }

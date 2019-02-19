@@ -20,9 +20,9 @@ export class ProfileUpdateComponent implements OnInit {
     private profileService: ProfileService) { }
 
   ngOnInit() {
-    let profileId = window.localStorage.getItem("updateProfileId");
+    let profileId = JSON.parse(window.localStorage.getItem('currentAccount')).profileId;
     if (!profileId) {
-      alert("Invalid action."); // TODO: foutafhandeling..., nu even terug naar home
+      // TODO: foutafhandeling..., nu even terug naar home
       this.router.navigate(['home']);
       return;
     }
@@ -45,6 +45,7 @@ export class ProfileUpdateComponent implements OnInit {
   onSubmit() {
     this.profileService.updateProfile(this.updateForm.value)
       .subscribe( data => {
+        this.router.navigate(['home']);
       })
   }
 

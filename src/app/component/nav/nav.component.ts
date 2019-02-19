@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { LoginService } from 'src/app/service/login/login.service';
 
 @Component({
   selector: 'app-nav',
@@ -6,8 +8,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./nav.component.css']
 })
 export class NavComponent implements OnInit {
+  currentAccount: Account;
+  currentAccountSubscription: Subscription;
 
-  constructor() { }
+  constructor(private loginService: LoginService) {
+    this.currentAccountSubscription = this.loginService.currentAccount.subscribe(account => {
+      this.currentAccount = account;
+    })
+   }
 
   ngOnInit() {
   }
