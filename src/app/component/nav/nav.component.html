@@ -13,8 +13,20 @@
     <div class="navbar-nav" *ngIf="!currentAccount">      
         <a class="nav-item nav-link" routerLink="login">login</a>      
     </div>
-    <div class="navbar-nav" *ngIf="currentAccount">      
+
+    <div class="nav-item dropdown" *ngIf="currentAccount">
+      <a class="nav-link dropdown-toggle" data-toggle="dropdown" id="Preview" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+        {{currentAccount.email}}
+      </a>
+      <div class="dropdown-menu" aria-labelledby="Preview">
+      <a class="dropdown-item" routerLink="profile/profile-show">Mijn profiel</a>
+      <a class="dropdown-item" routerLink="logout">Uitloggen</a>
+      </div>
+    </div>
+
+    <!-- <div class="navbar-nav" *ngIf="currentAccount">      
       <a class="nav-item nav-link" routerLink="login">{{currentAccount.email}}</a>      
-  </div>
+  </div> -->
+
   </div>
 </nav>

@@ -21,6 +21,8 @@ import { AccountListComponent } from './component/account/account-list/account-l
 import { TokenInterceptor } from './service/interceptor/token.interceptor';
 import { ProfileUpdateComponent } from './component/profile/profile-update/profile-update.component';
 import { BookDetailsComponent } from './component/book/book-details/book-details.component';
+import { ProfileShowComponent } from './component/profile/profile-show/profile-show.component';
+import { LogoutComponent } from './component/logout/logout.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +41,9 @@ import { BookDetailsComponent } from './component/book/book-details/book-details
     AuthorDetailsComponent,
     AccountListComponent,
     ProfileUpdateComponent,
-    BookDetailsComponent
+    BookDetailsComponent,
+    ProfileShowComponent,
+    LogoutComponent
   ],
   imports: [
     BrowserModule,

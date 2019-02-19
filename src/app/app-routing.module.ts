@@ -9,17 +9,21 @@ import {AuthorComponent} from './component/author/author.component';
 import { AccountListComponent } from './component/account/account-list/account-list.component';
 import { ProfileUpdateComponent } from './component/profile/profile-update/profile-update.component';
 import {BookDetailsComponent} from './component/book/book-details/book-details.component';
+import { ProfileShowComponent } from './component/profile/profile-show/profile-show.component';
+import { LogoutComponent } from './component/logout/logout.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
   {path: 'home', component: HomeComponent},
   {path: 'login', component: LoginComponent},
+  {path: 'logout', component: LogoutComponent},
   {path: 'register', component: RegisterComponent},
   {path: 'book', component: BookComponent},
-  { path: 'book/:isbn', component: BookDetailsComponent },
+  {path: 'book/:isbn', component: BookDetailsComponent },
   {path: 'author', component: AuthorComponent},
   {path: 'account/account-list', component: AccountListComponent},
   {path: 'profile/profile-update', component: ProfileUpdateComponent},
+  {path: 'profile/profile-show', component: ProfileShowComponent},
   {path: '**', component: NotFoundComponent},
 ];
 

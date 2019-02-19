@@ -28,4 +28,9 @@ export class LoginService {
         return data;
       }))
   }
+
+  logout() {
+    window.localStorage.removeItem('currentAccount');
+    this.currentAccountSubject.next(null);
+  }
 }
