@@ -2,24 +2,27 @@
   <div class="col-md-2">
     <div class="results-container rightBorder" *ngIf="book">
       <img src={{book.volumeInfo.imageLinks.smallThumbnail}} class="rounded float-lg-none-left">
+
     </div>
   </div>
   <div class="col-md-12 rightBorder" *ngIf="book">
-    <h1> {{book.volumeInfo.title}} </h1>
+    <h1> {{book?.volumeInfo.title}} </h1>
     <hr>
     <h4>Samenvatting</h4>
-    <p>{{book.volumeInfo.description}}</p>
+    <p>{{book?.volumeInfo.description}}</p>
+    <td><button class="btn btn-success m-1" (click)="saveBook(book)"> + Opslaan</button> </td>
     <hr/>
     <h4>Categorie</h4>
-    <p>{{book.volumeInfo.categories}}</p>
+    <p>{{book?.volumeInfo.categories}}</p>
     <h4>Auteur</h4>
-    <p>{{book.volumeInfo.authors}}</p>
+    <p>{{book?.volumeInfo.authors}}</p>
     <h4>Uitgever</h4>
-    <p>{{book.volumeInfo.publisher}}</p>
+    <p>{{book?.volumeInfo.publisher}}</p>
+      <h4>Isbn</h4><p>{{book?.volumeInfo.industryIdentifiers[0].identifier}}</p>
     <h4>Verschijningsdatum</h4>
-    <p>{{book.volumeInfo.publishedDate}}</p>
+    <p>{{book?.volumeInfo.publishedDate}}</p>
     <h4>Taal</h4>
-    <p>{{book.volumeInfo.language}}</p>
+    <p>{{book?.volumeInfo.language}}</p>
     <hr/>
   </div>
 </div>

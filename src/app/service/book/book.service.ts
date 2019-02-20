@@ -4,6 +4,7 @@ import {Observable} from 'rxjs';
 import {FormGroup} from '@angular/forms';
 import {environment} from '../../../environments/environment.prod';
 import {map} from 'rxjs/operators';
+import {Book} from '../../model/Book';
 
 
 @Injectable({
@@ -18,10 +19,9 @@ export class BookService {
   }
 
 
-  public createBook(bookForm: FormGroup): Observable<any> {
-    return this.http.post<any>(this.baseUrl + 'book', bookForm);
+  public createBook(book: Book): Observable<any> {
+    return this.http.post<any>(this.baseUrl + 'book', book);
   }
-
   public searchParam(search) {
     const encodedURI = encodeURI(this.googleApi + search + '&maxResults=40');
     return this.http.get(encodedURI);
@@ -30,14 +30,6 @@ export class BookService {
   public searchByIsbn(isbn) {
     const encodedURI = encodeURI('https://www.googleapis.com/books/v1/volumes?q=isbn:' + isbn + '&maxResults=1');
     return this.http.get(encodedURI);
-  }
-
-  public deleteBook() {
-
-  }
-
-  public updateBook() {
-
   }
 
   public getBookCategories(): Observable<any> {

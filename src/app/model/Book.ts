@@ -1,6 +1,6 @@
-import {Author} from './Author';
 import {Rating} from './Rating';
-import {BookType} from './BookType';
+import {Author} from './Author';
+import {BookCategory} from './BookCategory';
 
 export class Book {
   id: number;
@@ -9,6 +9,6 @@ export class Book {
   author: Author;
   publicationYear: number;
   pages: number;
-  bookType: string;
+  bookCategory: BookCategory;
   rating: Rating[];
 }
