@@ -20,12 +20,6 @@ export class ProfileUpdateComponent implements OnInit {
     private profileService: ProfileService) { }
 
   ngOnInit() {
-    let profileId = JSON.parse(window.localStorage.getItem('currentAccount')).profileId;
-    if (!profileId) {
-      // TODO: foutafhandeling..., nu even terug naar home
-      this.router.navigate(['home']);
-      return;
-    }
     this.updateForm = this.formBuilder.group({
       id: [''],
       dayOfBirth: ['', Validators.required],
@@ -36,9 +30,9 @@ export class ProfileUpdateComponent implements OnInit {
       addressList: ['', Validators.required],
       bookList: ['', Validators.required]
     });
-    this.profileService.getProfileById(+profileId)
+    this.profileService.getProfile()
       .subscribe(data => {
-        this.updateForm.setValue(data);
+        this.updateForm.setValue(data.result);
       });
   }
 

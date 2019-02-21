@@ -6,7 +6,6 @@ export class Profile {
     middleName: string;
     lastName: string;
     dayOfBirth: string;
-    account: Account;
     bookList: Book[];
     updatedOn: string;    
 }

@@ -17,15 +17,9 @@ export class ProfileShowComponent implements OnInit {
     private profileService: ProfileService) { }
 
   ngOnInit() {
-    let profileId = JSON.parse(window.localStorage.getItem('currentAccount')).profileId;
-    if (!profileId) {
-      alert("Sorry, geen profiel gevonden!");
-      this.router.navigate(['home']);
-      return;
-    }
-    this.profileService.getProfileById(profileId)
+    this.profileService.getProfile()
       .subscribe(data => {
-        this.profile = data;
+        this.profile = data.result;
       });
   }
 

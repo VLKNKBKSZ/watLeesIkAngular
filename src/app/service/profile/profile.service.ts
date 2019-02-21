@@ -13,12 +13,12 @@ export class ProfileService {
 
   constructor(private http: HttpClient) { }
 
-  getProfileById(id: number): Observable<Profile> {
-   return this.http.get<Profile>(this.baseUrl + 'profile/profile-update/' + id);
+  getProfile(): Observable<any> {
+   return this.http.get<any>(this.baseUrl + 'profile');
   }
 
   updateProfile(profile: Profile): Observable<Profile> {
-    return this.http.put<Profile>(this.baseUrl + 'profile/profile-update', profile);
+    return this.http.put<Profile>(this.baseUrl + 'profile/update', profile);
   }
 
 }
