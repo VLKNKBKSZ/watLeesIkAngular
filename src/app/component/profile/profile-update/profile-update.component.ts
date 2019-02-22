@@ -17,13 +17,18 @@ export interface DatePickerProfile {
   updatedOn: string;    
 }
 
+var today = new Date();
+var yyyy = today.getFullYear();
+
 @Component({
   selector: 'app-profile-update',
   templateUrl: './profile-update.component.html',
   styleUrls: ['./profile-update.component.css']
 })
-export class ProfileUpdateComponent implements OnInit {
-
+export class ProfileUpdateComponent implements OnInit {  
+  minDate: NgbDateStruct = { year: yyyy-120, month: 1, day: 1 };
+  maxDate: NgbDateStruct = { year: yyyy+1, month: 1, day: 1 };
+  
   profile: Profile;
   updateForm: FormGroup;
 

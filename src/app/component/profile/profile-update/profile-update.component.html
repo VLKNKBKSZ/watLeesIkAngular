@@ -22,7 +22,9 @@
         name="dayOfBirth" 
         class="form-control" 
         id="dayOfBirth"
-        ngbDatepicker #d="ngbDatepicker">
+        ngbDatepicker #d="ngbDatepicker"
+        [minDate]="minDate"
+        [maxDate]="maxDate">
         <div class="input-group-append">
           <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button"></button>
         </div>
