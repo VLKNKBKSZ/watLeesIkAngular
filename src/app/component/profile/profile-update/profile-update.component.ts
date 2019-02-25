@@ -13,7 +13,7 @@ export interface DatePickerProfile {
   middleName: string;
   lastName: string;
   dayOfBirth: NgbDateStruct;
-  bookList: Book[];
+  // bookList: Book[];
   updatedOn: string;    
 }
 
@@ -46,14 +46,21 @@ export class ProfileUpdateComponent implements OnInit {
       middleName: ['', Validators.required],
       lastName: ['', Validators.required],
       updatedOn: ['', Validators.required],
-      addressList: ['', Validators.required],
-      bookList: ['', Validators.required]
+      address: this.formBuilder.group({
+        id: [''],
+        streetName: [''],
+        number: [''],
+        numberAddition: [''],
+        postalCode: [''],
+        city: ['']
+      })
+      // bookList: ['', Validators.required]
     });
     this.profileService.getProfile()
       .subscribe(data => {
         let tmpProfile: DatePickerProfile = data.result;
         tmpProfile.dayOfBirth = this.dateformatService.parse(data.result.dayOfBirth);
-        this.updateForm.setValue(data.result);
+        this.updateForm.patchValue(tmpProfile);
       });
   }
 
