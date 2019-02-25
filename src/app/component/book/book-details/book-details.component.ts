@@ -16,6 +16,7 @@ export class BookDetailsComponent implements OnInit, OnDestroy {
   book;
   isbn: number;
   private sub: any;
+  role: string;
 
   constructor(private bookService: BookService, private route: ActivatedRoute) {
   }
@@ -27,13 +28,24 @@ export class BookDetailsComponent implements OnInit, OnDestroy {
         this.book = data.items[0];
       });
     });
+    this.role = window.localStorage.getItem('role');
   }
 
   ngOnDestroy() {
     this.sub.unsubscribe();
   }
 
-  public saveBook(book) {
+  public deleteBookByIsbn() {
+    this.bookService.deleteBookByIsbn(this.isbn).subscribe(
+      data => {
+        console.log(data);
+      },
+      error => {
+        console.log(error);
+      });
+  }
+
+  public createBook(book): Book {
     let bookNew: Book = new Book();
     let bookCategory: BookCategory = new BookCategory();
     bookNew.title = book.volumeInfo.title;
@@ -47,15 +59,19 @@ export class BookDetailsComponent implements OnInit, OnDestroy {
     bookNew.author = this.parseAuthorNames(book.volumeInfo.authors);
     bookNew.publicationYear = this.parsePublishedDate(book.volumeInfo.publishedDate);
     bookNew.isbn = book.volumeInfo.industryIdentifiers[0].identifier;
-    console.log(
-      bookNew);
+    return bookNew;
+  }
+
+  public saveBook(book) {
+    let bookNew = this.createBook(book);
+    console.log(bookNew);
     this.bookService.createBook(bookNew).pipe(first())
       .subscribe(
         data => {
           console.log(data);
-
         },
         error => {
+          console.log(error);
         });
   }
 

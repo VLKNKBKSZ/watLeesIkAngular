@@ -9,7 +9,6 @@ import { RegisterComponent } from './component/register/register.component';
 import { LoginComponent } from './component/login/login.component';
 import { HomeComponent } from './component/home/home.component';
 import { NotFoundComponent } from './component/not-found/not-found.component';
-import { BookDeleteComponent } from './component/book/book-delete/book-delete.component';
 import { BookCreateComponent } from './component/book/book-create/book-create.component';
 import { BookUpdateComponent } from './component/book/book-update/book-update.component';
 import { BookComponent } from './component/book/book.component';
@@ -34,7 +33,6 @@ import { LogoutComponent } from './component/logout/logout.component';
     HomeComponent,
     NotFoundComponent,
     BookComponent,
-    BookDeleteComponent,
     BookCreateComponent,
     BookUpdateComponent,
     AuthorComponent,

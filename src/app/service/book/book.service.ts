@@ -1,9 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
-import {FormGroup} from '@angular/forms';
 import {environment} from '../../../environments/environment.prod';
-import {map} from 'rxjs/operators';
 import {Book} from '../../model/Book';
 
 
@@ -18,9 +16,15 @@ export class BookService {
   constructor(private http: HttpClient) {
   }
 
-
   public createBook(book: Book): Observable<any> {
     return this.http.post<any>(this.baseUrl + 'book', book);
+  }
+
+  public deleteBook(book: Book): Observable<any> {
+    return this.http.post<any>(this.baseUrl + 'book/delete', book);
+  }
+  public deleteBookByIsbn(isbn: number): Observable<any> {
+    return this.http.delete<any>(this.baseUrl + `book/delete/` + isbn);
   }
   public searchParam(search) {
     const encodedURI = encodeURI(this.googleApi + search + '&maxResults=40');
