@@ -41,11 +41,11 @@ export class ProfileUpdateComponent implements OnInit {
   ngOnInit() {
     this.updateForm = this.formBuilder.group({
       id: [''],
-      dayOfBirth: ['', Validators.required],
+      dayOfBirth: ['', Validators.required,],
       name: ['', Validators.required],
-      middleName: ['', Validators.required],
+      middleName: [''],
       lastName: ['', Validators.required],
-      updatedOn: ['', Validators.required],
+      updatedOn: [''],
       address: this.formBuilder.group({
         id: [''],
         streetName: [''],
@@ -53,8 +53,8 @@ export class ProfileUpdateComponent implements OnInit {
         numberAddition: [''],
         postalCode: [''],
         city: ['']
-      })
-      // bookList: ['', Validators.required]
+      }),
+      bookList: ['']
     });
     this.profileService.getProfile()
       .subscribe(data => {
@@ -70,10 +70,15 @@ export class ProfileUpdateComponent implements OnInit {
     let profile: Profile = this.updateForm.value;
     profile.dayOfBirth = date;
 
+    alert(this.updateForm.status)
     this.profileService.updateProfile(profile)
       .subscribe( data => {
         this.router.navigate(['home']);
       })
   }
+
+  get name() {return this.updateForm.get('name');}
+  get lastName() {return this.updateForm.get('lastName');}
+  get dayOfBirth() {return this.updateForm.get('dayOfBirth');}
 
 }

@@ -3,22 +3,28 @@
   <form [formGroup]="updateForm" (ngSubmit)="onSubmit()">
 
     <div class="form-row">
-      <div class="form-group col-md-5">
-        <label for="name" class="mb-1">Naam</label>
+      <div class="form-group col-md-5 required">
+        <label for="name" class="mb-1">Voornaam</label>
         <input type="text" formControlName="name" name="name" class="form-control" id="name">
+        <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger mt-1">
+          <div *ngIf="name.errors.required">Voornaam is vereist...</div>
+        </div>
       </div>
       <div class="form-group col-md-2">
         <label for="middleName" class="mb-1">Tussenvoegsel</label>
         <input type="text" formControlName="middleName" name="middleName" class="form-control" id="middleName">
       </div>
-      <div class="form-group col-md-5">
+      <div class="form-group col-md-5 required">
         <label for="lastName" class="mb-1">Achternaam</label>
         <input type="text" formControlName="lastName" name="lastName" class="form-control" id="lastName">
+        <div *ngIf="lastName.invalid && (lastName.dirty || lastName.touched)" class="alert alert-danger mt-1">
+          <div *ngIf="lastName.errors.required">Achternaam is vereist...</div>
+        </div>
       </div>
     </div>
 
     <div class="form-row">
-      <div class="form-group col-md-5">
+      <div class="form-group col-md-5 required">
         <label for="dayOfBirth" class="mb-1">Geboortedatum</label>
         <div class="input-group">
           <input type="text" formControlName="dayOfBirth" name="dayOfBirth" class="form-control" id="dayOfBirth"
@@ -27,6 +33,9 @@
             <button class="btn btn-outline-secondary" (click)="d.toggle()" type="button">
               <img src="/assets/img/Font_Awesome_5_regular_calendar-alt.svg"
                 style="width: 1.2rem; height: 1rem; cursor: pointer;" /></button>
+          </div>
+          <div *ngIf="dayOfBirth.invalid && (dayOfBirth.dirty || dayOfBirth.touched)" class="alert alert-danger mt-1">
+            <div *ngIf="dayOfBirth.errors.required">Geboortedatum is vereist...</div>
           </div>
         </div>
       </div>
@@ -50,12 +59,12 @@
       </div>
 
       <div class="form-row">
-        <div class="form-group col-md-4">
+        <div class="form-group col-md-2">
           <label for="postalCode" class="mb-1">Postcode</label>
           <input type="text" formControlName="postalCode" name="postalCode" class="form-control" id="postalCode">
         </div>
-        <div class="form-group col-md-2">
-          <label for="city" class="mb-1">Plaatsnaam</label>
+        <div class="form-group col-md-8">
+          <label for="city" class="mb-1">Plaats</label>
           <input type="text" formControlName="city" name="city" class="form-control" id="city">
         </div>
       </div>
