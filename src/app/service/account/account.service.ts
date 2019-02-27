@@ -13,10 +13,14 @@ export class AccountService {
   constructor(private http: HttpClient) { }
 
   getAccountList() {
-    return this.http.get<Account[]>(this.baseUrl + 'account/account-list');
+    return this.http.get<Account[]>(this.baseUrl + 'account/list');
   }
 
   createAccount(account: Account) {
-    return this.http.post<Account>(this.baseUrl + 'account/account-create', account);
+    return this.http.post<Account>(this.baseUrl + 'account/create', account);
+  }
+
+  deleteAccount(account: Account) {
+    return this.http.post<Account>(this.baseUrl + 'account/delete', account);
   }
 }

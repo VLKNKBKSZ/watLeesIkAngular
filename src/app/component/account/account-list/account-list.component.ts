@@ -28,4 +28,14 @@ export class AccountListComponent implements OnInit {
         this.accounts = accounts;
       });
   }
+
+  deleteAccount(account) {
+    this.accountService.deleteAccount(account)
+      .subscribe(data => {
+        this.accountService.getAccountList()
+          .subscribe(accounts => {
+            this.accounts = accounts;
+          });
+      })
+  }
 }
