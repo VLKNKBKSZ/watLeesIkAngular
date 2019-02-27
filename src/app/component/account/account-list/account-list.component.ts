@@ -11,12 +11,14 @@ import { AccountService } from 'src/app/service/account/account.service';
 export class AccountListComponent implements OnInit {
 
   accounts: Account[];
+  currentAccount: Account;
 
   constructor(
     private router: Router,
     private accountService: AccountService) { }
 
   ngOnInit() {
+    this.currentAccount = JSON.parse(window.localStorage.getItem('currentAccount'));
     if (!window.localStorage.getItem('currentAccount')) {
       this.router.navigate(['login']);
       return;

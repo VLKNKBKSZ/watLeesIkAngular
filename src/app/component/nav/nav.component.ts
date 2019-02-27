@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { LoginService } from 'src/app/service/login/login.service';
 
@@ -7,7 +7,7 @@ import { LoginService } from 'src/app/service/login/login.service';
   templateUrl: './nav.component.html',
   styleUrls: ['./nav.component.css']
 })
-export class NavComponent implements OnInit {
+export class NavComponent implements OnInit, OnDestroy {
   currentAccount: Account;
   currentAccountSubscription: Subscription;
 
@@ -18,6 +18,10 @@ export class NavComponent implements OnInit {
    }
 
   ngOnInit() {
+  }
+
+  ngOnDestroy() {
+    this.currentAccountSubscription.unsubscribe();
   }
 
 }

@@ -1,22 +1,22 @@
 <div class="col-md-8 container">
   <h3 class="text-left my-3">Persoonlijke gegevens</h3>
-  <form [formGroup]="updateForm" (ngSubmit)="onSubmit()">
 
+  <form [formGroup]="updateForm" (ngSubmit)="onSubmit()">
     <div class="form-row">
       <div class="form-group col-md-5 required">
         <label for="name" class="mb-1">Voornaam</label>
-        <input type="text" formControlName="name" name="name" class="form-control" id="name">
+        <input type="text" formControlName="name" class="form-control">
         <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger mt-1">
           <div *ngIf="name.errors.required">Voornaam is vereist...</div>
         </div>
       </div>
       <div class="form-group col-md-2">
         <label for="middleName" class="mb-1">Tussenvoegsel</label>
-        <input type="text" formControlName="middleName" name="middleName" class="form-control" id="middleName">
+        <input type="text" formControlName="middleName" class="form-control">
       </div>
       <div class="form-group col-md-5 required">
         <label for="lastName" class="mb-1">Achternaam</label>
-        <input type="text" formControlName="lastName" name="lastName" class="form-control" id="lastName">
+        <input type="text" formControlName="lastName" class="form-control">
         <div *ngIf="lastName.invalid && (lastName.dirty || lastName.touched)" class="alert alert-danger mt-1">
           <div *ngIf="lastName.errors.required">Achternaam is vereist...</div>
         </div>
@@ -27,8 +27,8 @@
       <div class="form-group col-md-5 required">
         <label for="dayOfBirth" class="mb-1">Geboortedatum</label>
         <div class="input-group">
-          <input type="text" formControlName="dayOfBirth" name="dayOfBirth" class="form-control" id="dayOfBirth"
-            ngbDatepicker #d="ngbDatepicker" [minDate]="minDate" [maxDate]="maxDate">
+          <input type="text" formControlName="dayOfBirth" class="form-control" ngbDatepicker #d="ngbDatepicker"
+            [minDate]="minDate" [maxDate]="maxDate">
           <div class="input-group-append">
             <button class="btn btn-outline-secondary" (click)="d.toggle()" type="button">
               <img src="/assets/img/Font_Awesome_5_regular_calendar-alt.svg"
@@ -45,40 +45,41 @@
       <div class="form-row">
         <div class="form-group col-md-6">
           <label for="streetName" class="mb-1">Straatnaam</label>
-          <input type="text" formControlName="streetName" name="streetName" class="form-control" id="streetName">
+          <input type="text" formControlName="streetName" class="form-control">
         </div>
         <div class="form-group col-md-2">
           <label for="number" class="mb-1">Huisnummer</label>
-          <input type="text" formControlName="number" name="number" class="form-control" id="number">
+          <input type="text" formControlName="number" class="form-control">
         </div>
         <div class="form-group col-md-2">
           <label for="numberAddition" class="mb-1">Toevoeging</label>
-          <input type="text" formControlName="numberAddition" name="numberAddition" class="form-control"
-            id="numberAddition">
+          <input type="text" formControlName="numberAddition" class="form-control">
         </div>
       </div>
 
       <div class="form-row">
         <div class="form-group col-md-2">
           <label for="postalCode" class="mb-1">Postcode</label>
-          <input type="text" formControlName="postalCode" name="postalCode" class="form-control" id="postalCode">
+          <input type="text" formControlName="postalCode" class="form-control">
         </div>
         <div class="form-group col-md-8">
           <label for="city" class="mb-1">Plaats</label>
-          <input type="text" formControlName="city" name="city" class="form-control" id="city">
+          <input type="text" formControlName="city" class="form-control">
         </div>
       </div>
     </div>
 
-    <div class="form-group">
-      <label for="bookList">Gelezen boeken:</label>
-      <input type="text" formControlName="bookList" placeholder="boekenlijst" name="bookList" class="form-control"
-        id="bookList">
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="bookList">Gelezen boeken:</label>
+        <input type="text" formControlName="bookList" class="form-control">
+      </div>
     </div>
-    <div class="form-group">
-      <label for="updatedOn">Gewijzigd op:</label>
-      <input type="text" formControlName="updatedOn" placeholder="laatst gewijzigd op" name="updatedOn"
-        class="form-control" id="updatedOn" readonly=true>
+    <div class="form-row">
+      <div class="form-group col-md-4">
+        <label for="updatedOn">Laatst gewijzigd op:</label>
+        <input type="text" formControlName="updatedOn" class="form-control" readonly=true>
+      </div>
     </div>
     <button class="btn btn-success">Wijzigingen opslaan</button>
   </form>

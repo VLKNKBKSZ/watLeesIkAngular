@@ -1,0 +1,36 @@
+<div class="col-md-8 container">
+  <h3 class="text-left my-3">Nieuw account</h3>
+  <form [formGroup]="createForm" (ngSubmit)="onSubmit()">
+
+    <div class="form-row">
+      <div class="form-group col-md-5 required">
+        <label for="email">Email adres:</label>
+        <input type="text" class="form-control" formControlName="email" autocomplete="off">
+        <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert alert-danger mt-1">
+          <div *ngIf="email.errors.required">Email adres is vereist...</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group col-md-5 required">
+        <label for="password">Wachtwoord:</label>
+        <input type="password" class="form-control" formControlName="password" autocomplete="off">
+        <div *ngIf="password.invalid && (password.dirty || password.touched)" class="alert alert-danger mt-1">
+          <div *ngIf="password.errors.required">Wachtwoord is vereist...</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group col-md-5 required">
+        <label for="role">Rol:</label>
+        <input type="role" class="form-control" formControlName="role" autocomplete="off">
+        <div *ngIf="role.invalid && (role.dirty || role.touched)" class="alert alert-danger mt-1">
+          <div *ngIf="role.errors.required">Rol is vereist...</div>
+        </div>
+      </div>
+    </div>
+    <button class="btn btn-primary">Creeer account</button>
+  </form>
+</div>

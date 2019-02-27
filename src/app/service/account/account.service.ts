@@ -15,4 +15,8 @@ export class AccountService {
   getAccountList() {
     return this.http.get<Account[]>(this.baseUrl + 'account/account-list');
   }
+
+  createAccount(account: Account) {
+    return this.http.post<Account>(this.baseUrl + 'account/account-create', account);
+  }
 }

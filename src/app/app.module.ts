@@ -23,6 +23,7 @@ import { ProfileUpdateComponent } from './component/profile/profile-update/profi
 import { BookDetailsComponent } from './component/book/book-details/book-details.component';
 import { ProfileShowComponent } from './component/profile/profile-show/profile-show.component';
 import { LogoutComponent } from './component/logout/logout.component';
+import { AccountCreateComponent } from './component/account/account-create/account-create.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { LogoutComponent } from './component/logout/logout.component';
     ProfileUpdateComponent,
     BookDetailsComponent,
     ProfileShowComponent,
-    LogoutComponent
+    LogoutComponent,
+    AccountCreateComponent
   ],
   imports: [
     BrowserModule,

@@ -3,22 +3,27 @@
   <table class="table table-striped">
     <thead>
       <tr>
-        <th class="hidden">ID</th>
         <th>Email adres</th>
         <th>Rol</th>
+        <th>Laatste inlogdatum</th>
         <th>Aangemaakt op</th>
         <th>Laatst gewijzigd</th>
+        <th>
+          <div *ngIf="currentAccount.role === 'ADMIN'">
+            <button class="btn btn-primary m-1" routerLink="/account/account-create">Account toevoegen</button>
+          </div>
+        </th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let account of accounts">
-        <td class="hidden">{{account.id}}</td>
         <td>{{account.email}}</td>
         <td>{{account.role}}</td>
+        <td>{{account.lastLogin | date :'dd-MM-yyyy HH:mm'}}</td>
         <td>{{account.createdOn | date :'dd-MM-yyyy HH:mm'}}</td>
         <td>{{account.updatedOn | date :'dd-MM-yyyy HH:mm'}}</td>
-        <td><button class="btn btn-success m-1" (click)="deleteAccount(account)">Verwijderen</button>
-          <button class="btn btn-success m-1" (click)="editAccount(account)">Wijzigen</button>
+        <td><button class="btn btn-danger m-1" (click)="deleteAccount(account)">Verwijderen</button>
+          <button class="btn btn-primary m-1" (click)="editAccount(account)">Wijzigen</button>
         </td>
       </tr>
     </tbody>

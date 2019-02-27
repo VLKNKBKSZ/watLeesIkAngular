@@ -11,6 +11,7 @@ import { ProfileUpdateComponent } from './component/profile/profile-update/profi
 import {BookDetailsComponent} from './component/book/book-details/book-details.component';
 import { ProfileShowComponent } from './component/profile/profile-show/profile-show.component';
 import { LogoutComponent } from './component/logout/logout.component';
+import { AccountCreateComponent } from './component/account/account-create/account-create.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
@@ -22,6 +23,7 @@ const routes: Routes = [
   {path: 'book/:isbn', component: BookDetailsComponent },
   {path: 'author', component: AuthorComponent},
   {path: 'account/account-list', component: AccountListComponent},
+  {path: 'account/account-create', component: AccountCreateComponent},
   {path: 'profile/profile-update', component: ProfileUpdateComponent},
   {path: 'profile/profile-show', component: ProfileShowComponent},
   {path: '**', component: NotFoundComponent},

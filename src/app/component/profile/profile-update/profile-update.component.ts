@@ -70,7 +70,6 @@ export class ProfileUpdateComponent implements OnInit {
     let profile: Profile = this.updateForm.value;
     profile.dayOfBirth = date;
 
-    alert(this.updateForm.status)
     this.profileService.updateProfile(profile)
       .subscribe( data => {
         this.router.navigate(['home']);
