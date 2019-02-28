@@ -45,9 +45,22 @@ export class BookDetailsComponent implements OnInit, OnDestroy {
       });
   }
 
+  public addBookToMyBookList(book) {
+    const bookNew = this.createBook(book);
+    console.log(bookNew);
+    this.bookService.addBookToMyBookList(bookNew).pipe(first())
+      .subscribe(
+        data => {
+          console.log(data);
+        },
+        error => {
+          console.log(error);
+        });
+  }
+
   public createBook(book): Book {
-    let bookNew: Book = new Book();
-    let bookCategory: BookCategory = new BookCategory();
+    const bookNew: Book = new Book();
+    const bookCategory: BookCategory = new BookCategory();
     bookNew.title = book.volumeInfo.title;
 
     if (book.volumeInfo.categories === 'undefined' || book.volumeInfo.categories === null) {
@@ -63,7 +76,7 @@ export class BookDetailsComponent implements OnInit, OnDestroy {
   }
 
   public saveBook(book) {
-    let bookNew = this.createBook(book);
+    const bookNew = this.createBook(book);
     console.log(bookNew);
     this.bookService.createBook(bookNew).pipe(first())
       .subscribe(
@@ -76,8 +89,8 @@ export class BookDetailsComponent implements OnInit, OnDestroy {
   }
 
   public parseAuthorNames(authorNames): Author {
-    let author = new Author();
-    let words: string [] = authorNames.toString().split(' ');
+    const author = new Author();
+    const words: string [] = authorNames.toString().split(' ');
     if (words.length === 3) {
       author.name = words[0];
       author.middleName = words[1];
@@ -92,7 +105,7 @@ export class BookDetailsComponent implements OnInit, OnDestroy {
 
   public parsePublishedDate(publishedDate): any {
 
-    let words: string[] = publishedDate.toString().split('-');
+    const words: string[] = publishedDate.toString().split('-');
     return words[0];
   }
 }

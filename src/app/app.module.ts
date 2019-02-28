@@ -1,7 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavComponent } from './component/nav/nav.component';
@@ -10,7 +9,6 @@ import { LoginComponent } from './component/login/login.component';
 import { HomeComponent } from './component/home/home.component';
 import { NotFoundComponent } from './component/not-found/not-found.component';
 import { BookCreateComponent } from './component/book/book-create/book-create.component';
-import { BookUpdateComponent } from './component/book/book-update/book-update.component';
 import { BookComponent } from './component/book/book.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
@@ -35,7 +33,6 @@ import { AccountCreateComponent } from './component/account/account-create/accou
     NotFoundComponent,
     BookComponent,
     BookCreateComponent,
-    BookUpdateComponent,
     AuthorComponent,
     AuthorCreateComponent,
     AuthorDetailsComponent,
