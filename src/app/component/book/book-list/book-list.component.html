@@ -1,0 +1,29 @@
+<div class="col-md-12 container">
+  <h2>Mijn boekenlijst</h2>
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th>Titel:</th>
+      <th>Auteur:</th>
+      <th>isbn:</th>
+      <th>Waardering:</th>
+      <th>Begindatum:</th>
+      <th>Einddatum:</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let profileBookItem of profileBook">
+      <td>{{profileBookItem.book.title}}</td>
+      <td>{{profileBookItem.book.author.name + " " + profileBookItem.book.author.lastName}}</td>
+      <td>{{profileBookItem.book.isbn}}</td>
+      <td>{{profileBookItem.rating}}</td>
+      <td>{{profileBookItem.addedOn | date :'dd-MM-yyyy'}}</td>
+      <td>{{profileBookItem.finishedOn | date :'dd-MM-yyyy'}}</td>
+      <td>
+        <button class="btn btn-danger m-1" (click)="deleteProfileBookItem(profileBookItem)">Verwijderen</button>
+        <button class="btn btn-primary m-1" (click)="editProfileBookItem(profileBookItem)">Wijzigen</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>

@@ -3,6 +3,7 @@ import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {environment} from '../../../environments/environment.prod';
 import {Book} from '../../model/Book';
+import {ProfileBook} from '../../model/ProfileBook';
 
 
 @Injectable({
@@ -21,7 +22,7 @@ export class BookService {
   }
 
   public addBookToMyBookList(book: Book): Observable<any> {
-    return this.http.post<any>(this.baseUrl + 'profile/boekenlijst', book);
+    return this.http.post<any>(this.baseUrl + 'book/booklist', book);
   }
 
   public deleteBook(book: Book): Observable<any> {
@@ -32,11 +33,17 @@ export class BookService {
     return this.http.delete<any>(this.baseUrl + `book/delete/` + isbn);
   }
 
+  public getBookList(): Observable<any> {
+    return this.http.get<any>(this.baseUrl + 'book/mybooklist');
+  }
+
   public searchParam(search) {
     const encodedURI = encodeURI(this.googleApi + search + '&maxResults=40');
     return this.http.get(encodedURI);
   }
-
+public deleteBookListItem(profileBookItem) {
+    return this.http.post(this.baseUrl + 'book/delete/booklistitem', profileBookItem);
+}
   public searchByIsbn(isbn) {
     const encodedURI = encodeURI('https://www.googleapis.com/books/v1/volumes?q=isbn:' + isbn + '&maxResults=1');
     return this.http.get(encodedURI);

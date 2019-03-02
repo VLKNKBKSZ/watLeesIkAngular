@@ -12,6 +12,7 @@ import {BookDetailsComponent} from './component/book/book-details/book-details.c
 import { ProfileShowComponent } from './component/profile/profile-show/profile-show.component';
 import { LogoutComponent } from './component/logout/logout.component';
 import { AccountCreateComponent } from './component/account/account-create/account-create.component';
+import {BookListComponent} from './component/book/book-list/book-list.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
@@ -26,6 +27,7 @@ const routes: Routes = [
   {path: 'account/account-create', component: AccountCreateComponent},
   {path: 'profile/profile-update', component: ProfileUpdateComponent},
   {path: 'profile/profile-show', component: ProfileShowComponent},
+  {path: 'profile/book-list', component: BookListComponent},
   {path: '**', component: NotFoundComponent},
 ];
 
