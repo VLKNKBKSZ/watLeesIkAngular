@@ -33,4 +33,12 @@ export class LoginService {
     window.localStorage.removeItem('currentAccount');
     this.currentAccountSubject.next(null);
   }
+
+  requestPasswordReset(email) {
+    return this.http.post<string>(this.baseUrl + 'account/forgot', email);
+  }
+
+  resetPassword(resetPayload) {
+    return this.http.post<any>(this.baseUrl + 'account/reset', resetPayload)
+  }
 }

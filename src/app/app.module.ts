@@ -22,6 +22,8 @@ import { BookDetailsComponent } from './component/book/book-details/book-details
 import { ProfileShowComponent } from './component/profile/profile-show/profile-show.component';
 import { LogoutComponent } from './component/logout/logout.component';
 import { AccountCreateComponent } from './component/account/account-create/account-create.component';
+import { ForgotPasswordComponent } from './component/forgot-password/forgot-password.component';
+import { ResetPasswordComponent } from './component/reset-password/reset-password.component';
 import { BookListComponent } from './component/book/book-list/book-list.component';
 
 @NgModule({
@@ -43,6 +45,8 @@ import { BookListComponent } from './component/book/book-list/book-list.componen
     ProfileShowComponent,
     LogoutComponent,
     AccountCreateComponent,
+    ForgotPasswordComponent,
+    ResetPasswordComponent,
     BookListComponent
   ],
   imports: [

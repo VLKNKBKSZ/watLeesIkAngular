@@ -13,12 +13,16 @@ import { ProfileShowComponent } from './component/profile/profile-show/profile-s
 import { LogoutComponent } from './component/logout/logout.component';
 import { AccountCreateComponent } from './component/account/account-create/account-create.component';
 import {BookListComponent} from './component/book/book-list/book-list.component';
+import { ForgotPasswordComponent } from './component/forgot-password/forgot-password.component';
+import { ResetPasswordComponent } from './component/reset-password/reset-password.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
   {path: 'home', component: HomeComponent},
   {path: 'login', component: LoginComponent},
   {path: 'logout', component: LogoutComponent},
+  {path: 'forgot-password', component: ForgotPasswordComponent},
+  {path: 'reset-password/:token', component: ResetPasswordComponent},
   {path: 'register', component: RegisterComponent},
   {path: 'book', component: BookComponent},
   {path: 'book/:isbn', component: BookDetailsComponent },
