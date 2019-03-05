@@ -27,12 +27,17 @@ export class RegisterComponent implements OnInit {
       email: this.registrationForm.controls.email.value,
       password: this.registrationForm.controls.password.value
     }
-    this.registerService.register(registrationPayload).subscribe(data => {
-      if (data !== null) {
-        window.localStorage.setItem("firstLogin", 'true');
-        this.router.navigate(['login']);
+    this.registerService.register(registrationPayload).subscribe(
+      data => {
+        if (data !== null) {
+          window.localStorage.setItem("firstLogin", 'true');
+          this.router.navigate(['login']);
+        }
+      }, 
+      error => {
+        alert(JSON.stringify(error.error.message));
       }
-    })
+    )
   }
   
   ngOnInit() {

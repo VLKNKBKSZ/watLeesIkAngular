@@ -25,10 +25,13 @@ export class ForgotPasswordComponent implements OnInit {
     this.loginService.requestPasswordReset(email).subscribe(
       data => {
         this.router.navigate(['login']);
+      },
+      error => {
+        alert(JSON.stringify(error.error.message));
       }
     )
   }
-
+  
   ngOnInit() {
     this.forgotPasswordForm = this.formBuilder.group({
       'email': ['', Validators.required]

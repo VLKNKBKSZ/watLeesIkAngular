@@ -21,9 +21,10 @@ export class LoginService {
   login(loginPayload): Observable<any> {
     return this.http.post<any>(this.baseUrl + 'login', loginPayload)
       .pipe(map(data => {
-        if (data && data.tokenType === 'Bearer') {
-          window.localStorage.setItem('currentAccount', JSON.stringify(data));
-          this.currentAccountSubject.next(data);
+        alert(JSON.stringify(data));
+        if (data && data.result.tokenType === 'Bearer') {
+          window.localStorage.setItem('currentAccount', JSON.stringify(data.result));
+          this.currentAccountSubject.next(data.result);
         }
         return data;
       }))
