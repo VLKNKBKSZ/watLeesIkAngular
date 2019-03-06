@@ -24,8 +24,8 @@ export class AccountListComponent implements OnInit {
       return;
     }
     this.accountService.getAccountList()
-      .subscribe(accounts => {
-        this.accounts = accounts;
+      .subscribe(data => {
+        this.accounts = data.result;
       });
   }
 
@@ -33,8 +33,8 @@ export class AccountListComponent implements OnInit {
     this.accountService.deleteAccount(account)
       .subscribe(data => {
         this.accountService.getAccountList()
-          .subscribe(accounts => {
-            this.accounts = accounts;
+          .subscribe(data => {
+            this.accounts = data.result;
           });
       })
   }

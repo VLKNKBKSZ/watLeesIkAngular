@@ -13,7 +13,7 @@ export class AccountService {
   constructor(private http: HttpClient) { }
 
   getAccountList() {
-    return this.http.get<Account[]>(this.baseUrl + 'account/list');
+    return this.http.get<any>(this.baseUrl + 'account/list');
   }
 
   createAccount(account: Account) {
@@ -21,6 +21,6 @@ export class AccountService {
   }
 
   deleteAccount(account: Account) {
-    return this.http.post<Account>(this.baseUrl + 'account/delete', account);
+    return this.http.post<any>(this.baseUrl + 'account/delete', account);
   }
 }
