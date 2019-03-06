@@ -1,7 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ProfileBook} from '../../../model/ProfileBook';
 import {Router} from '@angular/router';
-import {AccountService} from '../../../service/account/account.service';
 import {BookService} from '../../../service/book/book.service';
 
 @Component({
@@ -13,8 +12,9 @@ export class BookListComponent implements OnInit {
 
   profileBook: ProfileBook[];
 
-  constructor( private router: Router,
-               private bookService: BookService) { }
+  constructor(private router: Router,
+              private bookService: BookService) {
+  }
 
   ngOnInit() {
     this.bookService.getBookList()
@@ -33,5 +33,10 @@ export class BookListComponent implements OnInit {
       error => {
         console.log(error);
       });
+  }
+
+  editProfileBookItem(profileBookItem: ProfileBook) {
+    this.bookService.setProfileBook(profileBookItem);
+    this.router.navigate(['book-list/book-list-item-edit']);
   }
 }

@@ -16,12 +16,12 @@
       <td>{{profileBookItem.book.title}}</td>
       <td>{{profileBookItem.book.author.name + " " + profileBookItem.book.author.lastName}}</td>
       <td>{{profileBookItem.book.isbn}}</td>
-      <td>{{profileBookItem.rating}}</td>
+      <td>{{profileBookItem.rating?.rating}}</td>
       <td>{{profileBookItem.addedOn | date :'dd-MM-yyyy'}}</td>
       <td>{{profileBookItem.finishedOn | date :'dd-MM-yyyy'}}</td>
       <td>
-        <button class="btn btn-danger m-1" (click)="deleteProfileBookItem(profileBookItem)">Verwijderen</button>
-        <button class="btn btn-primary m-1" (click)="editProfileBookItem(profileBookItem)">Wijzigen</button>
+        <button class="btn btn-outline-danger m-1" (click)="deleteProfileBookItem(profileBookItem)">Verwijderen</button>
+        <button class="btn btn-outline-info m-1" (click)="editProfileBookItem(profileBookItem)">Waardering</button>
       </td>
     </tr>
     </tbody>

@@ -15,6 +15,7 @@ import { AccountCreateComponent } from './component/account/account-create/accou
 import {BookListComponent} from './component/book/book-list/book-list.component';
 import { ForgotPasswordComponent } from './component/forgot-password/forgot-password.component';
 import { ResetPasswordComponent } from './component/reset-password/reset-password.component';
+import {BookListItemEditComponent} from './component/book/book-list/book-list-item-edit/book-list-item-edit.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
@@ -26,6 +27,7 @@ const routes: Routes = [
   {path: 'register', component: RegisterComponent},
   {path: 'book', component: BookComponent},
   {path: 'book/:isbn', component: BookDetailsComponent },
+  {path: 'book-list/book-list-item-edit', component: BookListItemEditComponent},
   {path: 'author', component: AuthorComponent},
   {path: 'account/account-list', component: AccountListComponent},
   {path: 'account/account-create', component: AccountCreateComponent},

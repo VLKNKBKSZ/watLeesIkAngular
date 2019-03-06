@@ -1,0 +1,31 @@
+<div class="col-md-12 container">
+  <h2>Mijn boekenlijst</h2>
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th>Titel:</th>
+      <th>Auteur:</th>
+      <th>isbn:</th>
+      <th>Begindatum:</th>
+      <th>Waardering:</th>
+    </tr>
+    </thead>
+    <tbody>
+    <td>{{profileBook.book.title}}</td>
+    <td>{{profileBook.book.author.name + " " + profileBook.book.author.lastName}}</td>
+    <td>{{profileBook.book.isbn}}</td>
+    <td> {{profileBook.addedOn}}</td>
+    <td>
+      <form [formGroup]="ratingForm" (ngSubmit)="onSubmit()">
+        <input type="text" formControlName="rating" class="form-control col-lg-3"
+               [ngClass]="{ 'is-invalid':formControls.rating.errors}">
+        <div *ngIf="formControls.rating.errors" class="invalid-feedback">
+          <div *ngIf="formControls.rating.errors.required">Waardering is vereist...</div>
+          <div *ngIf="formControls.rating.errors.pattern">Voer alleen nummers in tussen de 1-10...</div>
+        </div>
+        <button type="submit" class="btn btn-outline-primary"><!--[disabled]="!profileForm.valid"-->Opslaan</button>
+      </form>
+    </td>
+    </tbody>
+  </table>
+</div>

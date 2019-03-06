@@ -14,7 +14,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthorComponent } from './component/author/author.component';
 import { AuthorCreateComponent } from './component/author/author-create/author-create.component';
-import { AuthorDetailsComponent } from './component/author/author-details/author-details.component';
 import { AccountListComponent } from './component/account/account-list/account-list.component';
 import { TokenInterceptor } from './service/interceptor/token.interceptor';
 import { ProfileUpdateComponent } from './component/profile/profile-update/profile-update.component';
@@ -25,6 +24,7 @@ import { AccountCreateComponent } from './component/account/account-create/accou
 import { ForgotPasswordComponent } from './component/forgot-password/forgot-password.component';
 import { ResetPasswordComponent } from './component/reset-password/reset-password.component';
 import { BookListComponent } from './component/book/book-list/book-list.component';
+import { BookListItemEditComponent } from './component/book/book-list/book-list-item-edit/book-list-item-edit.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +38,6 @@ import { BookListComponent } from './component/book/book-list/book-list.componen
     BookCreateComponent,
     AuthorComponent,
     AuthorCreateComponent,
-    AuthorDetailsComponent,
     AccountListComponent,
     ProfileUpdateComponent,
     BookDetailsComponent,
@@ -47,7 +46,8 @@ import { BookListComponent } from './component/book/book-list/book-list.componen
     AccountCreateComponent,
     ForgotPasswordComponent,
     ResetPasswordComponent,
-    BookListComponent
+    BookListComponent,
+    BookListItemEditComponent
   ],
   imports: [
     BrowserModule,
