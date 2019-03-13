@@ -5,6 +5,7 @@ import {Book} from '../../../model/Book';
 import {Author} from '../../../model/Author';
 import {BookCategory} from '../../../model/BookCategory';
 import {first} from 'rxjs/operators';
+import {AlertService} from '../../../service/alert/alert.service';
 
 @Component({
   selector: 'app-book-details',
@@ -18,7 +19,7 @@ export class BookDetailsComponent implements OnInit, OnDestroy {
   private sub: any;
   role: string;
 
-  constructor(private bookService: BookService, private route: ActivatedRoute) {
+  constructor(private bookService: BookService, private route: ActivatedRoute, private alertService: AlertService) {
   }
 
   ngOnInit() {
@@ -38,23 +39,23 @@ export class BookDetailsComponent implements OnInit, OnDestroy {
   public deleteBookByIsbn() {
     this.bookService.deleteBookByIsbn(this.isbn).subscribe(
       data => {
-        console.log(data);
+        this.alertService.success(data, false);
       },
       error => {
-        console.log(error);
+        this.alertService.error(error, false);
       });
   }
 
   public addBookToMyBookList(book) {
     const bookNew = this.createBook(book);
     console.log(bookNew);
-    this.bookService.addBookToMyBookList(bookNew).pipe(first())
+    this.bookService.addBookToMyBookList(bookNew)
       .subscribe(
         data => {
-          console.log(data);
+          this.alertService.success(JSON.parse(data), false);
         },
         error => {
-          console.log(error);
+          this.alertService.error(JSON.parse(error), false);
         });
   }
 
@@ -81,10 +82,10 @@ export class BookDetailsComponent implements OnInit, OnDestroy {
     this.bookService.createBook(bookNew).pipe(first())
       .subscribe(
         data => {
-          console.log(data);
+          this.alertService.success(data, false);
         },
         error => {
-          console.log(error);
+          this.alertService.error(error, false);
         });
   }
 

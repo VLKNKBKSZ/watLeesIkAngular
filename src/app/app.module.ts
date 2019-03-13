@@ -25,6 +25,7 @@ import { ForgotPasswordComponent } from './component/forgot-password/forgot-pass
 import { ResetPasswordComponent } from './component/reset-password/reset-password.component';
 import { BookListComponent } from './component/book/book-list/book-list.component';
 import { BookListItemEditComponent } from './component/book/book-list/book-list-item-edit/book-list-item-edit.component';
+import { AlertComponent } from './component/alert/alert.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import { BookListItemEditComponent } from './component/book/book-list/book-list-
     ForgotPasswordComponent,
     ResetPasswordComponent,
     BookListComponent,
-    BookListItemEditComponent
+    BookListItemEditComponent,
+    AlertComponent
   ],
   imports: [
     BrowserModule,
