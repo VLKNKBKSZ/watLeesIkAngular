@@ -52,10 +52,10 @@ export class BookDetailsComponent implements OnInit, OnDestroy {
     this.bookService.addBookToMyBookList(bookNew)
       .subscribe(
         data => {
-          this.alertService.success(JSON.parse(data), false);
+          this.alertService.success(data, false);
         },
         error => {
-          this.alertService.error(JSON.parse(error), false);
+          this.alertService.error(error, false);
         });
   }
 
